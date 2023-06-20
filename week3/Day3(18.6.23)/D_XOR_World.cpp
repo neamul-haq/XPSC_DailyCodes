@@ -27,11 +27,21 @@ int main()
 
 void solve(){
     ll n,m; cin >> n >> m;
-    ll ans=n;
-    for(ll i=n+1; i<=m; i++)
-    {
-        ans^=i;
+    ll a;
+    if((n-1)%4==0){
+        a=n-1;
     }
-    cout << ans << ndl;
+    else if((n-1)%4==1){
+        a=1;
+    }
+    else if((n-1)%4==2){
+        a=n;
+    }
+    else{
+        a=0;
+    }
+    if(n==0) a=0;
+
+    cout << (a ^ m) << ndl;
 
 }
