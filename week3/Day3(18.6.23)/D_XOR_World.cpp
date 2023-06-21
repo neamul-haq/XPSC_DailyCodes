@@ -27,7 +27,7 @@ int main()
 
 void solve(){
     ll n,m; cin >> n >> m;
-    ll a;
+    ll a,b;
     if((n-1)%4==0){
         a=n-1;
     }
@@ -42,6 +42,19 @@ void solve(){
     }
     if(n==0) a=0;
 
-    cout << (a ^ m) << ndl;
+    if((m)%4==0){
+        b=m;
+    }
+    else if((m)%4==1){
+        b=1;
+    }
+    else if((m)%4==2){
+        b=m+1;
+    }
+    else{
+        b=0;
+    }
+
+    cout << (a ^ b) << ndl;
 
 }

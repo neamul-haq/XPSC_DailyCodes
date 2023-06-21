@@ -51,7 +51,6 @@ void solve(){
                 if(m2[s3]==s) continue;
                 ans++;
                 m2[s]=s3;
-                cout << s3 << " " <<  s << ndl;
             } 
         }
         for(char c='a'; c<='z'; c++)
@@ -62,7 +61,6 @@ void solve(){
                 if(m2[s3]==s2) continue;
                 ans++;
                 m2[s2]=s3;
-                cout << s3 << " "<<s2 << ndl;
             } 
         }
     }
