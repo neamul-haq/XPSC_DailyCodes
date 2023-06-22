@@ -29,7 +29,6 @@ void solve(){
     ll n,ans=0; cin >> n;
     string a[n];
     umap
-    unordered_map<string,string>m2;
     for(ll i=0; i<n; i++)
     {
         string s;
@@ -43,27 +42,24 @@ void solve(){
         string s = a[i];
         string s2 = a[i];
         string s3 = a[i];
-        for(char c='a'; c<='z'; c++)
+        for(char c='a'; c<='k'; c++)
         {
             s[0]=c;
             if(s==s3) continue;
             if(m[s]>0){
-                if(m2[s3]==s) continue;
-                ans++;
-                m2[s]=s3;
+                ans+=m[s];
             } 
         }
-        for(char c='a'; c<='z'; c++)
+        for(char c='a'; c<='k'; c++)
         {
             s2[1]=c;
             if(s2==s3) continue;
             if(m[s2]>0){
-                if(m2[s3]==s2) continue;
-                ans++;
-                m2[s2]=s3;
+                ans+=m[s2];
             } 
         }
     }
+    ans/=2;
     print
 
 }
