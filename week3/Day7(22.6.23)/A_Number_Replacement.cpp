@@ -1,6 +1,4 @@
 /*
-Neamul Haq
-University of Barisal
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -9,8 +7,8 @@ typedef long long int ll;
 #define cyes cout << "YES" << '\n';
 #define cno cout << "NO" << '\n';
 #define print cout << ans << '\n';
-#define umap unordered_map<ll,ll>m;
-#define map map<ll,ll>m;
+#define ump unordered_map<int,int>mp;
+#define mp map<int,int>mp;
 int const mod = 1e9+7;
 const ll inf = 1e18;
 const ll N = 1e3 ;
@@ -26,16 +24,23 @@ int main()
 }
 
 void solve(){
-    string s; cin>>s;
-     ll sz=s.size();
-     ll ans=sz;
-     unordered_map<char,bool>mp;
-     for(int i=0; i<sz; i++){
-        if(mp[s[i]]==true){
-            ans-=2;
-            mp.clear();
+    int n,ans=0; cin >> n;
+    vector<int>a(n);
+    for(int i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+    string s; cin >> s;
+    unordered_map<int,char>m;
+    for(int i=0; i<n; i++)
+    {
+        if(m[a[i]]=='\0') m[a[i]]=s[i];
+        else{
+            if(m[a[i]]!=s[i]){
+                cno
+                return;
+            }
         }
-        else mp[s[i]]=true;
-     }
-     cout<<ans<<endl;
+    }
+    cyes
 }
