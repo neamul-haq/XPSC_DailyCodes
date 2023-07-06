@@ -24,7 +24,32 @@ int main()
 }
 
 void solve(){
-    ll n,ans=0; cin >> n;
+    int n,ans=0; cin >> n;
+    char mat[n][n];
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            cin >> mat[i][j];
+        }
+    }
 
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            if(mat[i][j]=='1'){
+                //cout << i<< j<<ndl;
+                if(j!=n-1 and i!=n-1 ){
+                    if(mat[i][j+1]=='0' and mat[i+1][j]=='0'){
+                        cno
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    cyes
 
 }
