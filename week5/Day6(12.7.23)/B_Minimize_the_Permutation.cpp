@@ -36,13 +36,28 @@ void solve(){
         cin >> a[i];
     }
     unordered_map<int,int>m;
+    a[0]=0;
 
-    if(is_sorted(all(a))){
-        for(int i=1; i<=n; i++){
-            cout << a[i] << " ";
+    for(int i=1; i<=n; i++)
+    {
+        if(is_sorted(all(a))){
+            for(int i=1; i<=n; i++){
+                cout << a[i] << " ";
+            }
+            cout << ndl;
+            return;
         }
-        cout << ndl;
-        return;
+        for(int j=1; j<=n; j++)
+        {
+            if(a[j]==i){
+                while(a[j]<a[j-1] && m[j-1]==0){
+                    swap(a[j],a[j-1]);
+                    m[j-1]=1;
+                    j--;
+                }
+                break;
+            }
+        }
     }
 
     for(int i=1; i<=n; i++){
