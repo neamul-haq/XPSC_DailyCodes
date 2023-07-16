@@ -43,6 +43,12 @@ void solve(){
         else ev++;
     }
     if(od>=2) ans=0;
-    else 
-
+    else if(m.size()==1){
+        if(n%2) ans=2;
+        else ans=1;
+    }
+    else {
+        ans=1;
+    }
+    print
 }
