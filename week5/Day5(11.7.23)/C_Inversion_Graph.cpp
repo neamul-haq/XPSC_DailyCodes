@@ -66,9 +66,11 @@ void solve(){
     adj_list[n].clear();
     unordered_map<int,bool>m;
     int mx=INT_MIN;
+    int mn=INT_MAX;
     for(int i=0; i<n; i++)
     {
         mx=max(mx,a[i]);
+        mn=min(mn,a[i]);
         if(m[a[i]]==false){
             m[a[i]]=true;
             for(int j=a[i]-1; j>=1; j--)
@@ -79,13 +81,6 @@ void solve(){
                     adj_list[j].push_back(a[i]);
                     m[j]=true;
                 }
-            }
-        }
-        else{
-            for(int j=mx; j>a[i]; j--)
-            {
-                adj_list[a[i]].push_back(j);
-                adj_list[j].push_back(a[i]);
             }
         }
     }
