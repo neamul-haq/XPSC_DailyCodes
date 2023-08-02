@@ -94,6 +94,6 @@ void solve()
     }
     cout << ans.size() << ndl;
 
-    for (auto it : ans)
-        cout << it.first + 1 << " " << it.second + 1 << '\n';
+    for (auto [u,v] : ans)
+        cout << u<< " " << v << '\n';
 }
