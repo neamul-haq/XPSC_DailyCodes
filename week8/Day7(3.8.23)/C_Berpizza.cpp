@@ -46,7 +46,6 @@ void solve(){
             cin >> val;
             mono.insert({idx,val});
             poly.insert({val,idx});
-            //pq.push({})
             idx++;
         }
         else if(type==2){
