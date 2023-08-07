@@ -35,39 +35,10 @@ void solve(){
     cin >> a >> b;
     int ans=0;
     int res=0;
-    if(a.size()<b.size()){
-        for(int i=0; i<a.size(); i++)
-        {
-            if(a[i]!=b[i])
-            {
-                ans++;
-            }
-            else{
-                res=max(res,ans);
-                ans=0;
-            }
-        }
-        res=max(res,ans);
-        ans=0;
-    }
-    else{
-        for(int i=0; i<b.size(); i++)
-        {
-            if(a[i]!=b[i])
-            {
-                ans++;
-            }
-            else{
-                res=max(res,ans);
-                ans=0;
-            }
-        }
-        res=max(res,ans);
-        ans=0;
-    }
+
     int n=a.size();
     int m=b.size();
-    res+=abs(n-m);
+    res=max(n,m);
     if(a==b) res=-1;
     cout << res << ndl;
 }
