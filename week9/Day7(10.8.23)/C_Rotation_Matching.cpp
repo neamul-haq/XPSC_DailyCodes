@@ -32,7 +32,7 @@ int main()
 }
 
 void solve(){
-    int n,ans=INT_MIN; cin >> n;
+    int n,ans=0; cin >> n;
     vector<int>a(n);
     vector<int>b(n);
     mp
@@ -41,16 +41,34 @@ void solve(){
         cin >> a[i];
         m[a[i]]=i;
     }
+    m[a[0]]=n;
+    //a.push_back(a[0]);
     f(j,n){
         cin >> b[j];
         m2[b[j]]=j;
     }
-    vector<int>
+    map<int,int>mxdif;
     for(int i=1; i<=n; i++){
-        int dif=abs(m[i]-m2[i]);
-        dif=min(dif,n-dif);
-        cout << dif << " ";
+        int dif=(m[i]-m2[i]);
+        //dif=min(dif,n-dif);
+        if(dif<0) dif+=n;
+         mxdif[dif]++;
+        //cout << dif << " ";
     }
-
-
+    cout << ndl;
+    int rot=-1,val=-1;
+    for(auto it:mxdif){
+        if(it.second>val){
+            rot=it.first;
+            val=it.second;
+            //cout << it.first << " " << it.second << ndl;
+        } 
+    }
+    //cout << rot << ndl;
+    for(int i=0; i<n; i++){
+        int dis=i+rot;
+        if(dis>=n) dis=dis%n;
+        if(b[i]==a[dis]) ans++;
+    }
+    print
 }
