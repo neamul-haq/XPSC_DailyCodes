@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 12-08-2023  20:00:43
+CREATED: 13-08-2023  14:01:11
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -23,7 +23,14 @@ const ll N = 1e3 ;
 #define   fast() {ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);}
 #define all(x) (x).begin(), (x).end()
 void solve();
-
+ ll getSum(ll n){
+        ll sum = 0;
+        while (n != 0) {
+            sum = sum + n % 10;
+            n = n / 10;
+        }
+        return sum;
+    }
 int main()
 {
     fast()
@@ -32,29 +39,26 @@ int main()
 }
 
 void solve(){
-    ll n,m,ans=0; cin >> n >>m;
-    int mx=INT_MIN;
-    vector<int>a(n);
-    f(i,n){
-        cin >> a[i];
-        mx=max(mx,a[i]);
-    }
-
-   int l=1,r=mx;
+    ll n,s,ans=0; cin >> n >> s;
+    ll l=1;
+    ll r=n;
     while(l<=r){
-        int mid=l+(r-l)/2;
-        ll s=0;
-        for(int i=0; i<n; i++){
-            if((a[i]-mid)>0) s+=(a[i]-mid);
-        }
-        if(s>=m){
+        ll mid=l+(r-l)/2;
+        ll sum=getSum(mid);
+        sum=mid-sum;
+        if(sum>=s){
             ans=mid;
-            l=mid+1;
-        }
-        else{
             r=mid-1;
         }
+        else{
+            l=mid+1;
+        }
+        //cout << mid << " " << sum << ndl;
     }
+    if(ans==0){
+        cout << 0 << ndl;
+        return;
+    }
+    ans=n-ans+1;
     print
-
 }

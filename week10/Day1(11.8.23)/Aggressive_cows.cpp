@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 12-08-2023  20:00:43
+CREATED: 13-08-2023  21:21:02
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -27,27 +27,32 @@ void solve();
 int main()
 {
     fast()
-    ll t=1; 
+    ll t=1; cin >> t;
     while(t--) solve();
 }
 
 void solve(){
-    ll n,m,ans=0; cin >> n >>m;
-    int mx=INT_MIN;
+    ll n,m,ans=0; cin >> n >> m;
     vector<int>a(n);
-    f(i,n){
+    int mx=INT_MIN;
+    for(int i=0; i<n; i++){
         cin >> a[i];
         mx=max(mx,a[i]);
     }
-
-   int l=1,r=mx;
+    sort(all(a));
+    int l=1,r=mx;
     while(l<=r){
         int mid=l+(r-l)/2;
-        ll s=0;
-        for(int i=0; i<n; i++){
-            if((a[i]-mid)>0) s+=(a[i]-mid);
+        int curr=a[0];
+        int cnt=1;
+        for(int i=1; i<n; i++){
+            if((a[i]-curr)>=mid){
+                cnt++;
+                if(i!=n-1) curr=a[i];
+            }
         }
-        if(s>=m){
+        //cout << mid << " " << cnt << ndl;
+        if(cnt>=m){
             ans=mid;
             l=mid+1;
         }
@@ -56,5 +61,4 @@ void solve(){
         }
     }
     print
-
 }
