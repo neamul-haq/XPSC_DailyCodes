@@ -51,7 +51,7 @@ void solve(){
                 if(i!=n-1) curr=a[i];
             }
         }
-        //cout << mid << " " << cnt << ndl;
+
         if(cnt>=m){
             ans=mid;
             l=mid+1;
