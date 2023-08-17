@@ -44,13 +44,44 @@ void solve(){
         pref[j]=pref[j-1]+a[i];
         j++;
     }
-    for(auto u:pref){
-        cout << u << " ";
-    }
+    // for(auto u:pref){
+    //     cout << u << " ";
+    // }
+    // cout << ndl;
     for(int i=0; i<n; i++){
-        int l=0,r=1;
-        while(r<i){
-
+        int l=1,r=2;
+        bool nxt=true;
+        while(r<=i){
+            int val=pref[r]-pref[l-1];
+            if(val==a[i]){
+                ans++;
+                //cout << a[i] << " " << i << ndl;
+                nxt=false;
+                break;
+            }
+            else if(val>a[i]){
+                l++;
+                if(l==r){
+                    r++;
+                }
+            }
+            else r++;
+        }
+        l=i+2; r=i+3;
+        while(r<=n && nxt){
+            int val=pref[r]-pref[l-1];
+            if(val==a[i]){
+                ans++;
+                break;
+            }
+            else if(val>a[i]){
+                l++;
+                if(l==r){
+                    r++;
+                }
+            }
+            else r++;
         }
     }
+    print
 }
