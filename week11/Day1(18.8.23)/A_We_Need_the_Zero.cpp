@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 18-08-2023  12:08:42
+CREATED: 19-08-2023  16:41:33
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -10,12 +10,6 @@ using namespace __gnu_pbds;
 template <typename T>
 using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 typedef long long int ll;
-#ifdef LOKAL
-#include "DEBUG_TEMPLATE.h"
-#else
-#define HERE
-#define debug(args...)
-#endif
 #define ndl '\n';
 #define cyes cout << "YES" << '\n';
 #define cno cout << "NO" << '\n';
@@ -32,22 +26,33 @@ void solve();
 
 int main()
 {
-    
-    #ifndef LOKAL
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    #endif
+    fast()
     ll t=1; cin >> t;
     while(t--) solve();
 }
 
 void solve(){
-    ll n,k,ans=1; cin >> n >> k;
-
-    for(int i=0; i<k; i++){
-        ans*=n;
-        ans%=mod;
+    ll n; cin >> n;
+    vector<int>a(n);
+    f(i,n){
+        cin >> a[i];
     }
-    //debug(n);
-    print
+    ll ans=a[0];
+    for(int i=1; i<n; i++){
+        ans^=a[i];
+    }
+    vector<int>b(n);
+    f(i,n){
+        b[i]=a[i]^ans;
+    }
+    ll ans2=b[0];
+    for(int i=1; i<n; i++){
+        ans2^=b[i];
+    }
+    if(!ans2){
+        print
+    }
+    else{
+        cout << -1 << ndl;
+    }
 }

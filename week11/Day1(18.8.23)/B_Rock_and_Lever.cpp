@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 18-08-2023  12:08:42
+CREATED: 19-08-2023  15:05:34
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -10,12 +10,6 @@ using namespace __gnu_pbds;
 template <typename T>
 using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 typedef long long int ll;
-#ifdef LOKAL
-#include "DEBUG_TEMPLATE.h"
-#else
-#define HERE
-#define debug(args...)
-#endif
 #define ndl '\n';
 #define cyes cout << "YES" << '\n';
 #define cno cout << "NO" << '\n';
@@ -32,22 +26,25 @@ void solve();
 
 int main()
 {
-    
-    #ifndef LOKAL
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    #endif
+    fast()
     ll t=1; cin >> t;
     while(t--) solve();
 }
 
 void solve(){
-    ll n,k,ans=1; cin >> n >> k;
-
-    for(int i=0; i<k; i++){
-        ans*=n;
-        ans%=mod;
+    ll n,ans=0; cin >> n;
+    vector<ll>a(n);
+    unordered_map<ll,ll>um;
+    f(i,n){
+        cin >> a[i];
+        ll lg=log2(a[i]);
+        um[lg]++;
     }
-    //debug(n);
+    for(auto it:um){
+        ll v=it.second;
+        //cout << v << ndl;
+        ans+=(v*(v-1))/2;
+    }
     print
+
 }
