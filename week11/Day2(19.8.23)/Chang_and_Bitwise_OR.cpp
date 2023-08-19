@@ -32,10 +32,14 @@ int main()
 }
 
 void solve(){
-    ll n,ans=0; cin >> n;
+    ll n; cin >> n;
     vector<int>a(n);
     f(i,n){
         cin >> a[i];
     }
-
+    ll ans=a[0];
+    for(int i=1; i<n; i++){
+        ans=ans|a[i];
+    }
+    print
 }
