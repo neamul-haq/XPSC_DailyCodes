@@ -14,55 +14,94 @@ typedef long long int ll;
 #define cyes cout << "YES" << '\n';
 #define cno cout << "NO" << '\n';
 #define print cout << ans << '\n';
-#define f(i,n) for(int i=0; i<n; i++)
-#define ump unordered_map<int,int>um;
-#define mp map<int,int>m;
-int const mod = 1e9+7;
+#define f(i, n) for (int i = 0; i < n; i++)
+#define ump unordered_map<int, int> um;
+#define mp map<int, int> m;
+int const mod = 1e9 + 7;
 const ll inf = 1e18;
-const ll N = 1e3 ;
-#define   fast() {ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);}
+const ll N = 1e3;
+#define fast()                            \
+    {                                     \
+        ios_base::sync_with_stdio(false); \
+        cin.tie(0);                       \
+        cout.tie(0);                      \
+    }
 #define all(x) (x).begin(), (x).end()
 void solve();
 string s;
 int main()
 {
     fast()
-    
-    while(cin >> s) solve();
+    int t; cin >> t;
+    while (t--) solve();
 }
 
-void solve(){
-    string ans="";
-    vector<string>v={"kuti","lakh","hajar","shata"};
-    int sz=s.size();
-    if(sz>9){
-        int j,i;
-        if(sz==10){
-            j=3;
+void solve()
+{
+    cin >> s;
+    string ans = "";
+    vector<string> v = {"kuti", "lakh", "hajar", "shata"};
+    int sz = s.size();
+    int j, i;
+    i = 1;
+    if (sz > 9)
+    {
+        if (sz == 10)
+        {
+            j = 3;
         }
-        else if(sz==11 or sz==12){
-            j=2;
+        else if (sz == 11 or sz == 12)
+        {
+            j = 2;
         }
-        else if(sz==13 or sz==14){
-            j=1;
+        else if (sz == 13 or sz == 14)
+        {
+            j = 1;
         }
-        else{
-            j=0;
+        else
+        {
+            j = 0;
         }
-        for( i=0; j<4; i+=2){
-            if(j==3){
-                ans+=s[i]+' ';
-                ans+=v[j]+' ';
+        for (i = 0; j < 4; i += 2)
+        {
+            if (j == 3)
+            {
+                ans += s[i];
+                ans += ' ';
+                ans += v[j] + ' ';
                 j++;
+                sz--;
                 continue;
             }
-            ans+=s[i]+s[i+1]+' ';
-            ans+=v[j]+' ';
+            ans += s[i];
+            if(i==0 && )ans += s[i + 1];
+            ans += ' ';
+            ans += (v[j] + ' ');
             j++;
+            sz -= 2;
         }
     }
-    else{
-        for(i=)
+    
+    i--;
+    j=0;
+
+    for( i=i;i<s.size(); i+=2){
+        if (j == 3)
+            {
+                ans += s[i];
+                ans += ' ';
+                ans += v[j] + ' ';
+                j++;
+                sz--;
+                continue;
+            }
+            ans += s[i];
+            ans += s[i + 1];
+            ans += ' ';
+            ans += (v[j] + ' ');
+            j++;
+            sz -= 2;
     }
+
     cout << ans << ndl;
 }
