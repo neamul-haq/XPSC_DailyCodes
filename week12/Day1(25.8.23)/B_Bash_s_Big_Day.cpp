@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 23-08-2023  20:02:18
+CREATED: 25-08-2023  23:19:46
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -10,6 +10,13 @@ using namespace __gnu_pbds;
 template <typename T>
 using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 typedef long long int ll;
+typedef long double ld;
+#ifdef LOKAL
+#include "DEBUG_TEMPLATE.h"
+#else
+#define HERE
+#define debug(args...)
+#endif
 #define ndl '\n';
 #define cyes cout << "YES" << '\n';
 #define cno cout << "NO" << '\n';
@@ -26,26 +33,30 @@ void solve();
 
 int main()
 {
+#ifndef LOKAL
     fast()
-    ll t=1; cin >> t;
+#endif
+    ll t=1;
     while(t--) solve();
 }
 
 void solve(){
-    ll n,ans=1; cin >> n;
+    int n,ans=0; cin >> n;
     vector<int>a(n);
-    unordered_map<int,int>m;
+    int mx=INT_MIN;
     f(i,n){
         cin >> a[i];
-        m[a[i]]=i;
+        mx=max(mx,a[i]);
     }
-    if(is_sorted(all(a))){
-        cout << 0 << ndl;
-        return;
-    }
-    int l=1,r=n;
-    while(l+1<r-1){
-        
+    for(int i=2; i*i<=mx; i++){
+        int cnt=0;
+        f(j,n){
+            if(a[j]%i==0){
+                cnt+=2;
+                if()
+            } 
+        }
+        ans=max(ans,cnt);
     }
     print
 }

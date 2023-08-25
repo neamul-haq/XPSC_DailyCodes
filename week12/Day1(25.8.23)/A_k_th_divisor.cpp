@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 23-08-2023  20:02:18
+CREATED: 25-08-2023  14:00:54
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -10,6 +10,13 @@ using namespace __gnu_pbds;
 template <typename T>
 using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 typedef long long int ll;
+typedef long double ld;
+#ifdef LOKAL
+#include "DEBUG_TEMPLATE.h"
+#else
+#define HERE
+#define debug(args...)
+#endif
 #define ndl '\n';
 #define cyes cout << "YES" << '\n';
 #define cno cout << "NO" << '\n';
@@ -23,29 +30,40 @@ const ll N = 1e3 ;
 #define   fast() {ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);}
 #define all(x) (x).begin(), (x).end()
 void solve();
+vector<ll> findDivisors(ll n) {
+    vector<ll> divisors;
 
+    for (ll i = 1; i * i <= n; ++i) {
+        if (n % i == 0) {
+            divisors.push_back(i);
+
+            if (i != n / i) {
+                divisors.push_back(n / i);
+            }
+        }
+    }
+
+    return divisors;
+}
 int main()
 {
+#ifndef LOKAL
     fast()
-    ll t=1; cin >> t;
+#endif
+    ll t=1; 
     while(t--) solve();
 }
 
 void solve(){
-    ll n,ans=1; cin >> n;
-    vector<int>a(n);
-    unordered_map<int,int>m;
-    f(i,n){
-        cin >> a[i];
-        m[a[i]]=i;
-    }
-    if(is_sorted(all(a))){
-        cout << 0 << ndl;
+    ll n,k; cin >> n >> k;
+    vector<ll>a=findDivisors(n);
+    sort(all(a));
+    debug(a.size());
+    debug(a);
+    if(a.size()<k) {
+        cout << -1 << ndl;
         return;
     }
-    int l=1,r=n;
-    while(l+1<r-1){
-        
-    }
-    print
+    cout << a[k-1] << ndl;
+
 }

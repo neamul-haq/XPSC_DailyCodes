@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 23-08-2023  20:02:18
+CREATED: 25-08-2023  14:24:40
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -10,6 +10,13 @@ using namespace __gnu_pbds;
 template <typename T>
 using ordered_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
 typedef long long int ll;
+typedef long double ld;
+#ifdef LOKAL
+#include "DEBUG_TEMPLATE.h"
+#else
+#define HERE
+#define debug(args...)
+#endif
 #define ndl '\n';
 #define cyes cout << "YES" << '\n';
 #define cno cout << "NO" << '\n';
@@ -22,30 +29,24 @@ const ll inf = 1e18;
 const ll N = 1e3 ;
 #define   fast() {ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);}
 #define all(x) (x).begin(), (x).end()
-void solve();
 
-int main()
-{
-    fast()
-    ll t=1; cin >> t;
-    while(t--) solve();
+int isprime(int N){
+    if(N<2 || (!(N&1) && N!=2))
+        return 0;
+    for(int i=3; i*i<=N; i+=2){
+        if(!(N%i))
+            return 0;
+    }
+    return 1;
 }
-
-void solve(){
-    ll n,ans=1; cin >> n;
-    vector<int>a(n);
-    unordered_map<int,int>m;
-    f(i,n){
-        cin >> a[i];
-        m[a[i]]=i;
+int main() {
+    int n;
+    cin >> n;
+    for(int i=0; i<n; i++){
+        long long int x;
+        cin >> x;
+        long long int m = sqrt(x);
+        if(m*m==x && isprime(m)) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
-    if(is_sorted(all(a))){
-        cout << 0 << ndl;
-        return;
-    }
-    int l=1,r=n;
-    while(l+1<r-1){
-        
-    }
-    print
 }
