@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 08-09-2023  20:42:30
+CREATED: 09-09-2023  12:34:00
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -37,35 +37,21 @@ int main()
 #ifndef LOKAL
     fast()
 #endif
-    ll t=1; cin >> t;
-    void sieve();
+    ll t=1; 
     while(t--) solve();
 }
 
 void solve(){
-    ll l,r; cin >> l >> r;
-    if(max(l,r)<4){
-        cout << -1 << ndl;
-        return;
+    ll n,k,ans=0; cin >> n >> k;
+    vector<int>a(n);
+    vector<int>b(n);
+    for(int i=0; i<n; i++){
+        cin >> a[i];
     }
-    if(l!=r){
-        while(r%2==1){
-            r--;
-        }
-        cout << 2 << " " << r-2 << ndl;
+    for(int i=0; i<n; i++){
+        cin >> b[i];
     }
-    else{
-        if(l%2==0){
-            cout << 2 << " " << l-2 << ndl;
-            return;
-        }
-        for(int i=3; i*i<=l; i+=2){
-            if(l%i==0){
-                cout << i << " " << l-i << ndl;
-                return;
-            }
-        }
-        cout << -1 << ndl;
-    }
-
+    //sort(all(a));
+    sort(all(b));
+    int 
 }

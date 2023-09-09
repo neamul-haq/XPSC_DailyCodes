@@ -1,6 +1,6 @@
 /*
 AUTHOR: Neyamul_Haq
-CREATED: 08-09-2023  20:42:30
+CREATED: 09-09-2023  09:46:53
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -31,6 +31,15 @@ const ll N = 1e3 ;
 #define   fast() {ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);}
 #define all(x) (x).begin(), (x).end()
 void solve();
+ll gcd(ll a, ll b)
+{
+    if(b==0) return a;
+    return gcd(b, a%b);
+}
+
+ll lcm(ll a, ll b){
+    return (a/gcd(a,b))*b;
+}
 
 int main()
 {
@@ -38,34 +47,25 @@ int main()
     fast()
 #endif
     ll t=1; cin >> t;
-    void sieve();
     while(t--) solve();
 }
 
 void solve(){
-    ll l,r; cin >> l >> r;
-    if(max(l,r)<4){
-        cout << -1 << ndl;
+    ll n,x,y,ans=0; cin >> n >> x >> y;
+    if(x==y){
+        cout << 0 << ndl;
         return;
     }
-    if(l!=r){
-        while(r%2==1){
-            r--;
-        }
-        cout << 2 << " " << r-2 << ndl;
-    }
-    else{
-        if(l%2==0){
-            cout << 2 << " " << l-2 << ndl;
-            return;
-        }
-        for(int i=3; i*i<=l; i+=2){
-            if(l%i==0){
-                cout << i << " " << l-i << ndl;
-                return;
-            }
-        }
-        cout << -1 << ndl;
-    }
-
+    ll dvx=n/x;
+    ll dvy=n/y;
+    ll both=n/lcm(x,y);
+    debug(dvx,dvy,both);
+    dvx-=both;
+    dvy-=both;
+    if(dvx>1) ans=(dvx*(2*(n-dvx+1)+(dvx-1)))/2;
+    else if(dvx==1) ans=n;
+    else ans=0;
+    debug(ans);
+    if(dvy>0) ans-=((dvy*(dvy+1))/2);
+    print
 }
