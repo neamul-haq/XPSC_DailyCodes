@@ -51,7 +51,20 @@ void solve(){
     for(int i=0; i<n; i++){
         cin >> b[i];
     }
-    //sort(all(a));
     sort(all(b));
-    int 
+    ll l=1,r=LLONG_MAX;
+    while(l<=r){
+        ll mid=l+(r-l)/2;
+        ll cnt=0;
+        for(int i=0; i<n; i++){
+            ll val=mid-a[i];
+            cnt+=(upper_bound(all(b),val)-b.begin());
+        }
+        if(cnt>=k){
+            ans=mid;
+            r=mid-1;
+        }
+        else l=mid+1;
+    }
+    print
 }
